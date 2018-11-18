@@ -1,0 +1,29 @@
+<div *ngIf="child">
+  <p>ID: {{child.Id}}</p>
+  <p>First Name: {{child.FirstName}}</p>
+  <p>Last Name: {{child.LastName}}</p>
+  <p>Birth Date: {{child.BirthDate}}</p>
+  <p>Street: {{child.Street}}</p>
+  <p>City: {{child.City}}</p>
+  <p>Province: {{child.Provionce}}</p>
+  <p>Country: {{child.Country}}</p>
+  <p>Postal Code: {{child.PostalCode}}</p>
+  <p>Latitude: {{child.Latitude}}</p>
+  <p>Longitude: {{child.Longitude}}</p>
+  <p>Naughty: {{child.IsNaughty}}</p>
+  <p>Date Created: {{child.DateCreated}}</p>
+  <div>
+    <p><label>First Name: </label><input [(ngModel)]="child.FirstName" placeholder="First Name"></p>
+    <p><label>Last Name: </label><input [(ngModel)]="child.LastName" placeholder="Last Name"></p>
+    <p><label>Birth Date: </label><input [(ngModel)]="child.BirthDate" placeholder="yyyy-mm-dd"></p>
+    <p><label>Street: </label><input [(ngModel)]="child.Street" placeholder="xxx Ave"></p>
+    <p><label>City: </label><input [(ngModel)]="child.City" placeholder="Vancouver"></p>
+    <p><label>Province: </label><input [(ngModel)]="child.Province" placeholder="BC"></p>
+    <p><label>Country: </label><input [(ngModel)]="child.Country" placeholder="Canada"></p>
+    <p><label>Postal Code: </label><input [(ngModel)]="child.PostalCode" placeholder="B4N 3S8"></p>
+    <p><label>Latitude: </label><input [(ngModel)]="child.Latitude" placeholder="39"></p>
+    <p><label>Longitude: </label><input [(ngModel)]="child.Longitude" placeholder="-123"></p>
+    <p><label>Naughty: </label><input [(ngModel)]="child.IsNaughty" placeholder="false"></p>
+  </div>
+  <button (click)="goBack()">Back</button>&nbsp;&nbsp;&nbsp;&nbsp;<button (click)="save()">Save</button>
+</div>

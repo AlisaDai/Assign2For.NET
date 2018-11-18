@@ -1,0 +1,50 @@
+<h4 id="title">Children</h4>
+<table *ngIf="children" border="1">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Birthdate</th>
+      <th>Address</th>
+      <th>Coordinate</th>
+      <th>Naughty or Not Naughty</th>
+      <th>Created Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of children; let i=index;" (click)="onSelect(c)" [class.selected]="c === selected">
+      <td>{{ c.Id }}</td>
+      <td>{{ c.FirstName }} {{ c.LastName }}</td>
+      <!-- <td>{{c.BirthDate | date:'yyyy-MM-dd'}}</td> -->
+      <td>{{ c.BirthDate | date:'fullDate' }}</td>
+      <td>{{ c.Street }}, {{ c.City }}, {{ c.Province }}, {{ c.Country }}, {{ c.PostalCode }}</td>
+      <td>({{ c.Latitude }}, {{ c.Longitude }})</td>
+      <td>Naughty: {{ c.IsNaughty }}</td>
+      <td>{{ c.DateCreated }}</td>
+      <td><button class="delete" (click)="delete(c); $event.stopPropagation()">x</button></td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="selected">
+  <h3>
+    {{selected.FirstName}} {{selected.LastName}} is selected child.
+  </h3>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+<div>
+  <p><label>First Name: </label><input [(ngModel)]="child.FirstName" placeholder="First Name"></p>
+  <p><label>Last Name: </label><input [(ngModel)]="child.LastName" placeholder="Last Name"></p>
+  <p><label>Birth Date: </label><input [(ngModel)]="child.BirthDate" placeholder="yyyy-mm-dd"></p>
+  <p><label>Street: </label><input [(ngModel)]="child.Street" placeholder="xxx Ave"></p>
+  <p><label>City: </label><input [(ngModel)]="child.City" placeholder="Vancouver"></p>
+  <p><label>Province: </label><input [(ngModel)]="child.Province" placeholder="BC"></p>
+  <p><label>Country: </label><input [(ngModel)]="child.Country" placeholder="Canada"></p>
+  <p><label>Postal Code: </label><input [(ngModel)]="child.PostalCode" placeholder="B4N 3S8"></p>
+  <p><label>Latitude: </label><input [(ngModel)]="child.Latitude" placeholder="39"></p>
+  <p><label>Longitude: </label><input [(ngModel)]="child.Longitude" placeholder="-123"></p>
+  <p><label>Naughty: </label><input [(ngModel)]="child.IsNaughty" placeholder="false"></p>
+  <button (click)="add(newCharacter);">
+    Add
+  </button>
+</div>

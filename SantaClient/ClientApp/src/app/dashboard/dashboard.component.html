@@ -1,0 +1,4 @@
+<h3>The Children List</h3>
+<a *ngFor="let c of children" [routerLink]="['/detail', c.Id]" class="col-lg-4">
+  <p>{{c.FirstName}} {{c.LastName}}</p>
+</a>
